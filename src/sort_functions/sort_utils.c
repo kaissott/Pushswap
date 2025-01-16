@@ -1,24 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 15:33:22 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/16 12:52:09 by karamire         ###   ########.fr       */
+/*   Created: 2025/01/16 16:06:25 by karamire          #+#    #+#             */
+/*   Updated: 2025/01/16 16:06:26 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
-{
-	int	i;
-	t_list	*stack_a;
-
-	stack_a = NULL;
-	check_stack(&stack_a, ac, av);
-	sort_stack(ac, &stack_a);
-}
-// https://42-cursus.gitbook.io/guide/rank-02/push_swap/building-the-thing

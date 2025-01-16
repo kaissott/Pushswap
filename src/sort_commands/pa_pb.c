@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   pa_pb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 15:33:22 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/16 12:52:09 by karamire         ###   ########.fr       */
+/*   Created: 2025/01/16 09:10:46 by karamire          #+#    #+#             */
+/*   Updated: 2025/01/16 16:04:12 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int ac, char **av)
+void	pa(t_list **stack_a, t_list **stack_b)
 {
-	int	i;
-	t_list	*stack_a;
+	t_list	*temp;
 
-	stack_a = NULL;
-	check_stack(&stack_a, ac, av);
-	sort_stack(ac, &stack_a);
+	if ((*stack_b) == NULL)
+		return ;
+	temp = (*stack_b);
+	(*stack_b) = temp->next;
+	temp->next = (*stack_a);
+	(*stack_a) = temp;
 }
-// https://42-cursus.gitbook.io/guide/rank-02/push_swap/building-the-thing
+void	pb(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*temp;
+
+	if ((*stack_a) == NULL)
+		return ;
+	temp = (*stack_a);
+	(*stack_a) = temp->next;
+	temp->next = (*stack_b);
+	(*stack_b) = temp;
+}

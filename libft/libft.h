@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 08:38:10 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/13 13:44:16 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:40:10 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 typedef struct s_list
 {
 	int			value;
+	int			cost;
+	int			pos;	
 	struct s_list	*next;
 }					t_list;
 

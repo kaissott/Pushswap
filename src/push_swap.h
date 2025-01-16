@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:39:39 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/15 15:50:56 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:52:42 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,23 @@
 
 int		syntax_error(char *arg);
 int		duplicate_error(t_list *stack_a, int nb);
+int		sort_stack(int ac, t_list **stack_a);
 void	check_stack(t_list **stack_a, int ac, char **argv);
 void	put_in_stack_a(t_list **stack_a, int nbr, int i);
-void	sa(t_list **stack_a);
+void	put_in_stack_b(t_list **stack_b);
+void	sa(t_list **stack_a, int p);
+void	sb(t_list **stack_b, int p);
+void	ss(t_list **stack_a, t_list **stack_b);
+void	pa(t_list **stack_a, t_list **stack_b);
+void	pb(t_list **stack_a, t_list **stack_b);
+void	ra(t_list **stack_a, int p);
+void	rb(t_list **stack_b, int p);
+void	rr(t_list **stack_a, t_list **stack_b);
+void	rra(t_list **stack_a, int p);
+void	rrb(t_list **stack_b, int p);
+void	rrr(t_list **stack_a, t_list **stack_b);
+void	sort_stack_two(t_list **stack_a);
+t_list	*ft_lstlast(t_list *lst);
+void	print_stack(t_list *stack);
 
 #endif

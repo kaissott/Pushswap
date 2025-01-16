@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 17:21:57 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/15 16:37:06 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:51:22 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	check_stack(t_list **stack_a, int ac, char **av)
 	int		nbr;
 	t_list	**stack_b;
 
-	stack_b = NULL;
+	stack_b = malloc(sizeof(t_list));
 	i = 0;
 	while (++i < ac)
 	{
@@ -80,9 +80,18 @@ void	check_stack(t_list **stack_a, int ac, char **av)
 		}
 		put_in_stack_a(stack_a, nbr, i);
 	}
+/* 	put_in_stack_b(stack_b);
+	printf("a = ");
 	print_stack(*stack_a);
-	printf("\n\n");
-	sa(stack_a);
 	printf("\n");
+	printf("b = ");
+	print_stack(*stack_b);
+	printf("\n");
+	rrr(stack_a, stack_b);
+	printf("\n");
+	printf("a = ");
 	print_stack(*stack_a);
+	printf("\n");
+	printf("b = ");
+	print_stack(*stack_b); */
 }

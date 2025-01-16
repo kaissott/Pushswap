@@ -1,75 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stacks.c                                      :+:      :+:    :+:   */
+/*   sa_sb_ss.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:18:33 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/15 16:07:00 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:03:53 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	sa(t_list **stack_a)
+void	sa(t_list **stack_a, int p)
 {
-	t_list *temp;
-	t_list *tempb;
+	t_list	*temp;
+	t_list	*tempb;
 
 	if (stack_a == NULL)
-		return;
+		return ;
 	temp = (*stack_a);
 	tempb = temp->next;
 	(*stack_a) = tempb;
 	temp->next = tempb->next;
 	tempb->next = temp;
-	write(1, "sa", 2);
+	if (p == 1)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_list **stack_b)
+void	sb(t_list **stack_b, int p)
 {
-	t_list *temp;
-	t_list *tempb;
+	t_list	*temp;
+	t_list	*tempb;
 
 	if (stack_b == NULL)
-		return;
+		return ;
 	temp = (*stack_b);
 	tempb = temp->next;
 	(*stack_b) = tempb;
 	temp->next = tempb->next;
 	tempb->next = temp;
-	write(1, "sb", 2);
+	if (p == 1)
+		write(1, "sb\n", 3);
 }
 void	ss(t_list **stack_a, t_list **stack_b)
 {
-	t_list *temp;
-	t_list *tempb;
-
-	if (stack_b == NULL || stack_a == NULL)
-		return;
-	temp = (*stack_a);
-	tempb = temp->next;
-	(*stack_a) = tempb;
-	temp->next = tempb->next;
-	tempb->next = temp;
-	temp = NULL;
-	tempb = NULL;
-	temp = (*stack_b);
-	tempb = temp->next;
-	(*stack_b) = tempb;
-	temp->next = tempb->next;
-	tempb->next = temp;
-	write(1, "ss", 2);
+	sa(stack_a, 0);
+	sa(stack_b, 0);
+	write(1, "ss\n", 3);
 }
-/* const void	pa_pb(t_list *stack_a, t_list *stack_b, int index)
-{
-	t_list	*temp;
-
-	if (index == 1)
-	{
-		temp = stack_a;
-		ft_lstadd_front(stack_b, &temp);
-		stack_a = stack_a->next;
-	}
-} */

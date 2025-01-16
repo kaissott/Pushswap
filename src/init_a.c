@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:45:08 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/15 15:46:07 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:46:44 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,34 @@
 
 void	put_in_stack_a(t_list **stack_a, int nbr, int i)
 {
-	t_list *newelement;
-	t_list *temp;
+	t_list	*newelement;
+	t_list	*last;
 
 	newelement = malloc(sizeof(t_list));
 	if (newelement == NULL)
-		return;
+		return ;
 	newelement->value = nbr;
-	//newelement = stack_a->next;
-	newelement->next = *stack_a;
-	*stack_a = newelement;
+	ft_lstadd_back(stack_a, newelement);
 }
 
+void	put_in_stack_b(t_list **stack_b)
+{
+	t_list	*a;
+	t_list	*b;
+	t_list	*c;
+
+	a = malloc(sizeof(t_list));
+	b = malloc(sizeof(t_list));
+	c = malloc(sizeof(t_list));
+	a->value = 7;
+	b->value = 8;
+	c->value = 9;
+	if (a == NULL)
+		return ;
+	a->next = *stack_b;
+	*stack_b = a;
+	b->next = *stack_b;
+	*stack_b = b;
+	c->next = *stack_b;
+	*stack_b = c;
+}

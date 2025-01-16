@@ -1,24 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 15:33:22 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/16 12:52:09 by karamire         ###   ########.fr       */
+/*   Created: 2024/11/17 06:00:46 by karamire          #+#    #+#             */
+/*   Updated: 2025/01/16 15:43:19 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	i;
-	t_list	*stack_a;
+	t_list	*last;
 
-	stack_a = NULL;
-	check_stack(&stack_a, ac, av);
-	sort_stack(ac, &stack_a);
+	if (lst == NULL)
+		return (NULL);
+	while (lst != NULL)
+	{
+		last = lst;
+		lst = lst->next;
+	}
+	return (last);
 }
-// https://42-cursus.gitbook.io/guide/rank-02/push_swap/building-the-thing
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last;
+
+	if (new == NULL)
+		return ;
+	if ((*lst) == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	last = *lst;
+	while (last->next != NULL)
+	{
+		last = last->next;
+	}
+	last->next = new;
+	return ;
+}
