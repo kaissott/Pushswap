@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stack.c                                       :+:      :+:    :+:   */
+/*   sort_two_three.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 12:41:43 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/16 16:05:22 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:14:22 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,15 @@ void	sort_stack_three(t_list **stack_a)
 	}
 }
 
-int	sort_stack(int ac, t_list **stack_a)
+int	sort_stack(int ac, t_list **stack_a, t_list **stack_b)
 {
-	t_list	*stack_b;
-
-	stack_b = malloc(sizeof(t_list));
-	stack_b = NULL;
 	if (ac == 3)
 		sort_stack_two(stack_a);
 	else if (ac == 4)
 		sort_stack_three(stack_a);
-	/* 	else if (ac == 6)
-			sort_stack_five(stack_a);
-		else if (ac > 6)
-			sort_stack_no_limit(stack_a); */
+	else if (ac == 6)
+		sort_stack_five(stack_a, stack_b);
+	/* 		else if (ac > 6)
+				sort_stack_no_limit(stack_a); */
 	return (0);
 }

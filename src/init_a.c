@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:45:08 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/16 15:46:44 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:13:42 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	put_in_stack_a(t_list **stack_a, int nbr, int i)
 	ft_lstadd_back(stack_a, newelement);
 }
 
-void	put_in_stack_b(t_list **stack_b)
+/* void	put_in_stack_b(t_list **stack_b)
 {
 	t_list	*a;
 	t_list	*b;
@@ -44,4 +44,4 @@ void	put_in_stack_b(t_list **stack_b)
 	*stack_b = b;
 	c->next = *stack_b;
 	*stack_b = c;
-}
+} */
