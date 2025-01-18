@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_four_five.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:06:12 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/16 17:19:45 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/18 06:07:17 by kaissramire      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	search_and_push_min_two(t_list **stack_a, t_list **stack_b, int pos,
 	}
 	else
 	{
-		while (i > pos - 1)
+		while (i > pos)
 		{
 			rra(stack_a, 1);
 			i--;
@@ -50,6 +50,7 @@ void	search_and_push_min(t_list **stack_a, t_list **stack_b)
 	t_list	*temp;
 
 	i = 0;
+	j = 0;
 	temp = (*stack_a);
 	min = temp->value;
 	while (temp != NULL)

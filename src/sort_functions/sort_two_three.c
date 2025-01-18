@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_two_three.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 12:41:43 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/16 17:14:22 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/18 06:08:28 by kaissramire      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

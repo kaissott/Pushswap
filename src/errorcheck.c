@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errorcheck.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 17:21:57 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/16 12:51:22 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/18 06:04:26 by kaissramire      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,24 @@ void	print_stack(t_list *stack)
 	current = stack;
 	while (current != NULL)
 	{
-		printf("%d -> ", current->value);
+		printf("%d -> ", current->pos);
 		current = current->next;
 	}
 	printf("NULL");
+}
+
+int	check_pos_right(t_list **stack_a)
+{
+	t_list	*current;
+
+	current = (*stack_a);
+	while (current->next != NULL)
+	{
+		if ((current->value) > (current->next->value))
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }
 
 void	check_stack(t_list **stack_a, int ac, char **av)
@@ -79,19 +93,20 @@ void	check_stack(t_list **stack_a, int ac, char **av)
 			return ;
 		}
 		put_in_stack_a(stack_a, nbr, i);
+		put_pos(stack_a);
 	}
-/* 	put_in_stack_b(stack_b);
-	printf("a = ");
-	print_stack(*stack_a);
-	printf("\n");
-	printf("b = ");
-	print_stack(*stack_b);
-	printf("\n");
-	rrr(stack_a, stack_b);
-	printf("\n");
-	printf("a = ");
-	print_stack(*stack_a);
-	printf("\n");
-	printf("b = ");
-	print_stack(*stack_b); */
+	/* 	put_in_stack_b(stack_b);
+		printf("a = ");
+		print_stack(*stack_a);
+		printf("\n");
+		printf("b = ");
+		print_stack(*stack_b);
+		printf("\n");
+		rrr(stack_a, stack_b);
+		printf("\n");
+		printf("a = ");
+		print_stack(*stack_a);
+		printf("\n");
+		printf("b = ");
+		print_stack(*stack_b); */
 }

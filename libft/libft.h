@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 08:38:10 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/16 12:40:10 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/18 08:20:14 by kaissramire      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ typedef struct s_list
 {
 	int			value;
 	int			cost;
-	int			pos;	
+	int			pos;
 	struct s_list	*next;
+	struct s_list	*target;
 }					t_list;
 
 char	*ft_strchr(const char *s, int c);
