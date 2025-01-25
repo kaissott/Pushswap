@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
+/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:45:08 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/18 08:04:12 by kaissramire      ###   ########.fr       */
+/*   Updated: 2025/01/25 16:58:45 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,6 @@ void	put_in_stack_a(t_list **stack_a, int nbr, int i)
 		return ;
 	newelement->value = nbr;
 	ft_lstadd_back(stack_a, newelement);
-}
-void	reset_pos(t_list **stack_a)
-{
-	int	pos;
-	t_list	*current;
-
-	current = (*stack_a);
-	pos = 0;
-	while (current != NULL)
-	{
-		current->pos = pos;
-		pos++;
-		current = current->next;
-	}
 }
 
 /* void	put_in_stack_b(t_list **stack_b)

@@ -3,42 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
+/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:06:25 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/18 09:08:24 by kaissramire      ###   ########.fr       */
+/*   Updated: 2025/01/25 17:27:31 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	best_a_in_b_match(t_list *stack_a, t_list *stack_b)
-{
-	t_list	*b;
-	t_list	*target;
-	int		index_match;
-
-	while (stack_a != NULL)
-	{
-		index_match = INT_MIN;
-		b = stack_b;
-		while (b != NULL)
-		{
-			if (b->value < stack_a->value && b->value > index_match)
-			{
-				index_match = b->value;
-				target = b;
-			}
-			b = b->next;
-		}
-		stack_a->target = target;
-		stack_a = stack_a->next;
-	}
-}
+#include "../push_swap.h"
 
 int	list_size(t_list *stack)
 {
-	int	i;
+	int		i;
 	t_list	*s;
 
 	i = 0;
@@ -50,21 +26,52 @@ int	list_size(t_list *stack)
 	}
 	return (i);
 }
-int	median_bool(t_list *stack)
+
+void	index_init(t_list **stack_a)
 {
-	int	size;
-	size = list_size(stack);
-	if (stack->pos >= size/2)
-		return(1);
-	else
-		return(0);
+	t_list	*a;
+
+	a = (*stack_a);
+	while (a != NULL)
+	{
+		a->index = -1;
+		a = a->next;
+	}
+}
+void	stack_index(t_list **stack_a)
+{
+	int		i;
+	t_list	*a;
+	t_list	*b;
+	t_list	*min;
+
+	i = 0;
+	index_init(stack_a);
+	while (i != list_size(*stack_a))
+	{
+		a = (*stack_a);
+		min = NULL;
+		while (a != NULL)
+		{
+			if ((min == NULL || a->value < min->value) && a->index == -1)
+			{
+				min = a;
+			}
+			a = a->next;
+		}
+		if (min != NULL)
+		{
+			min->index = i;
+			i++;
+			printf("%d = %d\n", min->value, min->index);
+		}
+	}
 }
 
-void	cost_calculator(t_list *stack_a, t_list *stack_b)
+int	chunk_size_calc(int list_size)
 {
-	int	a_med;
-	int	b_med;
+	int	chunk;
 
-	
+	chunk = 0.000000053 * (list_size * list_size) + 0.03 * list_size + 14.5;
+	return (chunk);
 }
-

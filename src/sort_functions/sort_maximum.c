@@ -3,10 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_maximum.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
+/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 06:39:52 by kaissramire       #+#    #+#             */
-/*   Updated: 2025/01/18 06:40:06 by kaissramire      ###   ########.fr       */
+/*   Updated: 2025/01/25 16:41:45 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void	sort_stack_max(t_list **stack_a, t_list **stack_b)
+{
+	
+}

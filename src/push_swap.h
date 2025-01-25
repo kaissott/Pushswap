@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
+/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:39:39 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/18 08:12:34 by kaissramire      ###   ########.fr       */
+/*   Updated: 2025/01/25 17:05:34 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 
 /* typedef struct s_list
 {
@@ -52,5 +52,6 @@ void	search_and_push_min_two(t_list **stack_a, t_list **stack_b, int pos,
 void	search_and_push_min(t_list **stack_a, t_list **stack_b);
 t_list	*ft_lstlast(t_list *lst);
 void	print_stack(t_list *stack);
+void	stack_index(t_list **stack_a);
 
 #endif

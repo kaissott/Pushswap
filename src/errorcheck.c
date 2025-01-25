@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errorcheck.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
+/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 17:21:57 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/18 06:04:26 by kaissramire      ###   ########.fr       */
+/*   Updated: 2025/01/25 16:58:32 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,33 +44,6 @@ int	duplicate_error(t_list *stack_a, int nb)
 	return (1);
 }
 
-void	print_stack(t_list *stack)
-{
-	t_list	*current;
-
-	current = stack;
-	while (current != NULL)
-	{
-		printf("%d -> ", current->pos);
-		current = current->next;
-	}
-	printf("NULL");
-}
-
-int	check_pos_right(t_list **stack_a)
-{
-	t_list	*current;
-
-	current = (*stack_a);
-	while (current->next != NULL)
-	{
-		if ((current->value) > (current->next->value))
-			return (0);
-		current = current->next;
-	}
-	return (1);
-}
-
 void	check_stack(t_list **stack_a, int ac, char **av)
 {
 	int		i;
@@ -93,7 +66,7 @@ void	check_stack(t_list **stack_a, int ac, char **av)
 			return ;
 		}
 		put_in_stack_a(stack_a, nbr, i);
-		put_pos(stack_a);
+		//put_pos(stack_a);
 	}
 	/* 	put_in_stack_b(stack_b);
 		printf("a = ");
