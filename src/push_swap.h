@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:39:39 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/25 17:05:34 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/26 16:14:22 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int		syntax_error(char *arg);
 int		duplicate_error(t_list *stack_a, int nb);
 int		sort_stack(int ac, t_list **stack_a, t_list **stack_b);
 int		check_pos_right(t_list **stack_a);
+int		list_size(t_list *stack);
+int		chunk_size_calc(int list_size);
 void	check_stack(t_list **stack_a, int ac, char **argv);
 void	put_in_stack_a(t_list **stack_a, int nbr, int i);
 void	reset_pos(t_list **stack_a);
@@ -45,6 +47,7 @@ void	rra(t_list **stack_a, int p);
 void	rrb(t_list **stack_b, int p);
 void	rrr(t_list **stack_a, t_list **stack_b);
 void	sort_stack_two(t_list **stack_a);
+void	sort_stack_max(t_list **stack_a, t_list **stack_b);
 void	sort_stack_three(t_list **stack_a);
 void	sort_stack_five(t_list **stack_a, t_list **stack_b);
 void	search_and_push_min_two(t_list **stack_a, t_list **stack_b, int pos,

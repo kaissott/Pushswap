@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:06:25 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/25 17:27:31 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/26 16:23:09 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	stack_index(t_list **stack_a)
 		{
 			min->index = i;
 			i++;
-			printf("%d = %d\n", min->value, min->index);
 		}
 	}
 }

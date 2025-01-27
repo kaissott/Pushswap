@@ -6,13 +6,13 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 12:41:43 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/25 17:06:21 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:18:44 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* void	sort_stack_two(t_list **stack_a)
+void	sort_stack_two(t_list **stack_a)
 {
 	if (((*stack_a)->value) > ((*stack_a)->next->value))
 		ra(stack_a, 1);
@@ -43,17 +43,17 @@ void	sort_stack_three(t_list **stack_a)
 		sa(stack_a, 1);
 		rra(stack_a, 1);
 	}
-} */
+}
 
 int	sort_stack(int ac, t_list **stack_a, t_list **stack_b)
 {
-/* 	if (ac == 3)
+	if (ac == 3)
 		sort_stack_two(stack_a);
 	else if (ac == 4)
 		sort_stack_three(stack_a);
 	else if (ac == 6)
-		sort_stack_five(stack_a, stack_b); */
-	if (ac > 6)
-		stack_index(stack_a);
+		sort_stack_five(stack_a, stack_b);
+	else if (ac > 6)
+		sort_stack_max(stack_a, stack_b);
 	return (0);
 }
