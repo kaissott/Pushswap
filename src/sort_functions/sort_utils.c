@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:06:25 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/26 16:23:09 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/28 01:17:52 by kaissramire      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	stack_index(t_list **stack_a)
 	t_list	*b;
 	t_list	*min;
 
-	i = 0;
+	i = 1;
 	index_init(stack_a);
-	while (i != list_size(*stack_a))
+	while (i != list_size(*stack_a) + 1)
 	{
 		a = (*stack_a);
 		min = NULL;

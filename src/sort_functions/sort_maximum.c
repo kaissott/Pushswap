@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_maximum.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 06:39:52 by kaissramire       #+#    #+#             */
-/*   Updated: 2025/01/27 22:03:24 by karamire         ###   ########.fr       */
+/*   Updated: 2025/01/28 01:17:33 by kaissramire      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void	sort_stack_max(t_list **stack_a, t_list **stack_b)
 	t_list	*a;
 
 	stack_index(stack_a);
+	i = list_size(*stack_a);
 	j = chunk_size_calc(list_size(*stack_a));
 	a = (*stack_a);
 	pb(stack_a, stack_b);
@@ -117,4 +118,5 @@ void	sort_stack_max(t_list **stack_a, t_list **stack_b)
 	}
 	sort_stack_three(stack_a);
 	push_b_to_a(stack_a, stack_b);
+	print_stack(*stack_a);
 }
