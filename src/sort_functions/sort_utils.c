@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
+/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:06:25 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/28 01:17:52 by kaissramire      ###   ########.fr       */
+/*   Updated: 2025/01/28 18:58:57 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	list_size(t_list *stack)
 
 	i = 0;
 	s = stack;
+/* 	if (s == NULL)
+		return (0); */
 	while (s != NULL)
 	{
 		s = s->next;
@@ -42,12 +44,11 @@ void	stack_index(t_list **stack_a)
 {
 	int		i;
 	t_list	*a;
-	t_list	*b;
 	t_list	*min;
 
-	i = 1;
+	i = 0;
 	index_init(stack_a);
-	while (i != list_size(*stack_a) + 1)
+	while (i != list_size(*stack_a))
 	{
 		a = (*stack_a);
 		min = NULL;
@@ -73,4 +74,16 @@ int	chunk_size_calc(int list_size)
 
 	chunk = 0.000000053 * (list_size * list_size) + 0.03 * list_size + 14.5;
 	return (chunk);
+}
+
+void	free_stack(t_list **stack)
+{
+	t_list	*tmp;
+
+	while ((*stack)->next != NULL)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		(*stack) = tmp;
+	}
 }

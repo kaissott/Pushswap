@@ -3,39 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_maximum.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
+/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 06:39:52 by kaissramire       #+#    #+#             */
-/*   Updated: 2025/01/28 01:17:33 by kaissramire      ###   ########.fr       */
+/*   Updated: 2025/01/28 20:45:38 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	print_stack(t_list *stack_b)
-{
-	t_list	*current;
-
-	current = stack_b;
-	while (current != NULL)
-	{
-		printf("%d\n", current->value);
-		current = current->next;
-	}
-	printf("NULL");
-	printf("\n");
-}
-void	print_list(t_list *head)
-{
-	t_list	*current;
-
-	current = head;
-	while (current != NULL)
-	{
-		printf("Value: %d, Index: %d\n", current->value, current->index);
-		current = current->next;
-	}
-}
 
 int	search_bigger(t_list *stack_b)
 {
@@ -52,6 +27,22 @@ int	search_bigger(t_list *stack_b)
 	}
 	return (i);
 }
+void	first_push(t_list **stack_a, t_list **stack_b, int chunk)
+{
+	int		i;
+
+	i = 0;
+	while ((*stack_a) != NULL)
+	{
+		if ((*stack_a)->index < chunk)
+		{
+			pb(stack_a, stack_b);
+			break ;
+		}
+		ra(stack_a, 1);
+	}
+}
+
 void	push_b_to_a(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*b;
@@ -62,7 +53,6 @@ void	push_b_to_a(t_list **stack_a, t_list **stack_b)
 	int		j;
 
 	j = 0;
-	median = (size / 2);
 	test = (*stack_b);
 	while (list_size(*stack_b) > 0)
 	{
@@ -94,29 +84,26 @@ void	push_b_to_a(t_list **stack_a, t_list **stack_b)
 
 void	sort_stack_max(t_list **stack_a, t_list **stack_b)
 {
-	int		i;
-	int		j;
-	int		b;
-	t_list	*a;
+	int	i;
+	int	j;
+	int	b;
 
 	stack_index(stack_a);
 	i = list_size(*stack_a);
 	j = chunk_size_calc(list_size(*stack_a));
-	a = (*stack_a);
-	pb(stack_a, stack_b);
-	while (list_size(*stack_a) != 3)
+	first_push(stack_a, stack_b, j);
+	while (list_size(*stack_a) > 3)
 	{
 		b = list_size(*stack_b);
-		if ((*stack_a)->index > (b + j))
+		if ((*stack_a)->index > (b + j) || (*stack_a)->index >= (i - 3))
 			ra(stack_a, 1);
 		else
 		{
 			pb(stack_a, stack_b);
-			if ((*stack_b)->index > b && (*stack_b)->index < (j + b))
+			if ((*stack_b)->index > b && (*stack_b)->index <= (j + b))
 				rb(stack_b, 1);
 		}
 	}
 	sort_stack_three(stack_a);
 	push_b_to_a(stack_a, stack_b);
-	print_stack(*stack_a);
 }
