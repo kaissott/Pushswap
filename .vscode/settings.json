@@ -67,7 +67,14 @@
     "variant": "c",
     "chrono": "c",
     "bitset": "c",
-    "functional": "c"
+    "functional": "c",
+    "array": "c",
+    "string_view": "c",
+    "initializer_list": "c",
+    "ranges": "c",
+    "span": "c",
+    "regex": "c",
+    "utility": "c"
   },
   "cmake.sourceDirectory": "/home/karamire/Documents/42-Pushswap/push_swap_visualizer"
 }

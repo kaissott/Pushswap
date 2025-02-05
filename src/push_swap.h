@@ -14,7 +14,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -36,10 +35,10 @@ int					list_size(t_list *stack);
 int					chunk_size_calc(int list_size);
 int					ft_isdigit(int c);
 int					ft_atoi(const char *str);
+int					check_stack(t_list **stack_a, int ac, char **argv);
+int				put_in_stack_a(t_list **stack_a, int nbr);
 size_t				ft_strlen(const char *s);
 t_list				*ft_lstlast(t_list *lst);
-void				check_stack(t_list **stack_a, int ac, char **argv);
-void				put_in_stack_a(t_list **stack_a, int nbr);
 void				sa(t_list **stack_a, int p);
 void				sb(t_list **stack_b, int p);
 void				ss(t_list **stack_a, t_list **stack_b);
@@ -57,6 +56,7 @@ void				sort_stack_three(t_list **stack_a);
 void				sort_stack_five(t_list **stack_a, t_list **stack_b);
 void				search_and_push_min_two(t_list **stack_a, t_list **stack_b,
 						int pos, int i);
+int					return_error(t_list **stack_a);
 void				search_and_push_min(t_list **stack_a, t_list **stack_b);
 void				stack_index(t_list **stack_a);
 void				free_stack(t_list **stack);
