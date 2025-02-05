@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -25,11 +26,18 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+char				**ft_split(char const *s, char c);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
+char				*ft_strcat(char *dst, const char *src);
 int					syntax_error(char *arg);
 int					duplicate_error(t_list *stack_a, int nb);
 int					sort_stack(int ac, t_list **stack_a, t_list **stack_b);
 int					list_size(t_list *stack);
 int					chunk_size_calc(int list_size);
+int					ft_isdigit(int c);
+int					ft_atoi(const char *str);
+size_t				ft_strlen(const char *s);
+t_list				*ft_lstlast(t_list *lst);
 void				check_stack(t_list **stack_a, int ac, char **argv);
 void				put_in_stack_a(t_list **stack_a, int nbr);
 void				sa(t_list **stack_a, int p);
@@ -53,10 +61,6 @@ void				search_and_push_min(t_list **stack_a, t_list **stack_b);
 void				stack_index(t_list **stack_a);
 void				free_stack(t_list **stack);
 void				first_push(t_list **stack_a, t_list **stack_b, int chunk);
-int					ft_atoi(const char *str);
-size_t				ft_strlen(const char *s);
-int					ft_isdigit(int c);
-t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif

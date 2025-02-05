@@ -9,7 +9,8 @@ SRC =	src/sort_commands/pa_pb.c				src/sort_commands/ra_rb_rr.c \
 		src/sort_functions/sort_four_five.c	src/sort_functions/sort_maximum.c \
 		src/sort_functions/sort_two_three.c	src/sort_functions/sort_utils.c \
 		src/utils/errorcheck.c				src/utils/lst_utils.c \
-		src/utils/utils.c \
+		src/utils/ft_split.c 				src/utils/ft_strlcat.c	\
+		src/utils/ft_substr.c				src/utils/utils.c \
 		src/push_swap.c
 
 OBJ = $(SRC:.c=.o)

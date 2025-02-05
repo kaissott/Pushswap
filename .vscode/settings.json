@@ -66,7 +66,8 @@
     "ratio": "c",
     "variant": "c",
     "chrono": "c",
-    "bitset": "c"
+    "bitset": "c",
+    "functional": "c"
   },
   "cmake.sourceDirectory": "/home/karamire/Documents/42-Pushswap/push_swap_visualizer"
 }

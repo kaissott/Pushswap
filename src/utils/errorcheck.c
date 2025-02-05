@@ -6,12 +6,11 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 17:21:57 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/28 18:17:37 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:54:38 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 int	syntax_error(char *av)
 {
@@ -36,7 +35,7 @@ int	duplicate_error(t_list *stack_a, int nb)
 	t_list	*check;
 
 	if (stack_a == NULL)
-		return(0);
+		return (0);
 	check = stack_a;
 	while (check != NULL)
 	{
@@ -47,26 +46,35 @@ int	duplicate_error(t_list *stack_a, int nb)
 	return (1);
 }
 
+
 void	check_stack(t_list **stack_a, int ac, char **av)
 {
 	int		i;
 	int		nbr;
+	int		j;
+	char	**temp;
 
 	i = 1;
-	while (i < ac)
+	while (i++ < ac)
 	{
-		if (!syntax_error(av[i]))
+		j = 0;
+		temp = ft_split(av[i], 32);
+		while (temp[j++] != NULL)
 		{
-			write(1, "synta", 5);
-			return ;
+			if (!syntax_error(temp[j]))
+			{
+				write(1, "Error\n", 6);
+				return ;
+			}
+			nbr = ft_atoi(temp[j]);
+			if (duplicate_error(*stack_a, nbr) == -1)
+			{
+				write(1, "Error\n", 6);
+				return ;
+			}
+			put_in_stack_a(stack_a, nbr);
+			free(temp[j]);
 		}
-		nbr = ft_atoi(av[i]);
-		if (duplicate_error(*stack_a, nbr) == -1)
-		{
-			write(1, "Error", 5);
-			return ;
-		}
-		put_in_stack_a(stack_a, nbr);
-		i++;
+		free(temp);
 	}
 }
