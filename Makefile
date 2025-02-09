@@ -11,7 +11,7 @@ SRC =	src/sort_commands/pa_pb.c				src/sort_commands/ra_rb_rr.c \
 		src/utils/errorcheck.c				src/utils/lst_utils.c \
 		src/utils/ft_split.c 				src/utils/ft_strlcat.c	\
 		src/utils/ft_substr.c				src/utils/utils.c \
-		src/push_swap.c
+		src/push_swap.c						src/utils/ft_lstclear.c
 
 OBJ = $(SRC:.c=.o)
 

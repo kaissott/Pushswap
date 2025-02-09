@@ -6,18 +6,27 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 17:21:57 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/05 20:30:57 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:43:51 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	return_error(t_list **stack_a)
+int	return_error(t_list **stack_a, char **temp)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	free_stack(stack_a);
+	if (temp != NULL)
+	{
+		while (temp[i])
+			free(temp[i++]);
+		free(temp);
+	}
+	if (stack_a != NULL)
+	{
+		ft_lstclear(stack_a, free);
+	}
 	write(2, "Error\n", 6);
 	return (-1);
 }
@@ -67,15 +76,16 @@ int	check_stack(t_list **stack_a, int ac, char **av)
 	{
 		j = 0;
 		temp = ft_split(av[i], 32);
-		if (!temp[j])
-			return(-1);
+		if (temp == NULL)
+			return (return_error(stack_a, temp));
 		while (temp[j] != NULL)
 		{
 			nbr = ft_atoi(temp[j]);
-			if (syntax_error(temp[j]) == -1 || duplicate_error(*stack_a, nbr) == -1)
-				return (return_error(stack_a));
+			if (syntax_error(temp[j]) == -1 || duplicate_error(*stack_a, nbr) ==
+				-1)
+				return (return_error(stack_a, temp));
 			if (!put_in_stack_a(stack_a, nbr))
-				return (return_error(stack_a));
+				return (return_error(stack_a, temp));
 			free(temp[j++]);
 		}
 		free(temp);

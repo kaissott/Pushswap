@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:21:25 by kkarakus          #+#    #+#             */
-/*   Updated: 2025/02/04 14:08:07 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/08 23:10:34 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,16 @@ static char	**ft_tabcomp(char **tab, char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
+	int	size;
 
+	if(s[0] == 0)
+		return(NULL);
 	if (s == NULL)
 		return (NULL);
-	tab = (char **)malloc(sizeof(char *) * (ft_countwords(s, c) + 1));
+	size = ft_countwords(s, c);
+	if (size == 0)
+		return (NULL);
+	tab = (char **)malloc(sizeof(char *) * (size + 1));
 	if (tab == NULL)
 		return (NULL);
 	return (ft_tabcomp(tab, s, c));

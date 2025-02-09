@@ -74,7 +74,10 @@
     "ranges": "c",
     "span": "c",
     "regex": "c",
-    "utility": "c"
+    "utility": "c",
+    "push_swap_bonus.h": "c",
+    "stdlib.h": "c",
+    "get_next_line.h": "c"
   },
   "cmake.sourceDirectory": "/home/karamire/Documents/42-Pushswap/push_swap_visualizer"
 }
