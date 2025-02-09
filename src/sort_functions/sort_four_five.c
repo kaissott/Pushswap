@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_four_five.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaissramirez <kaissramirez@student.42.f    +#+  +:+       +#+        */
+/*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:06:12 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/18 06:07:17 by kaissramire      ###   ########.fr       */
+/*   Updated: 2025/02/09 06:12:00 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	sort_stack_five(t_list **stack_a, t_list **stack_b)
 	search_and_push_min(stack_a, stack_b);
 	search_and_push_min(stack_a, stack_b);
 	sort_stack_three(stack_a);
-	pa(stack_a, stack_b);
-	pa(stack_a, stack_b);
+	pa(stack_a, stack_b, 1);
+	pa(stack_a, stack_b, 1);
 }
 void	search_and_push_min_two(t_list **stack_a, t_list **stack_b, int pos,
 		int i)
@@ -40,7 +40,7 @@ void	search_and_push_min_two(t_list **stack_a, t_list **stack_b, int pos,
 			i--;
 		}
 	}
-	pb(stack_a, stack_b);
+	pb(stack_a, stack_b, 1);
 }
 void	search_and_push_min(t_list **stack_a, t_list **stack_b)
 {
@@ -64,7 +64,7 @@ void	search_and_push_min(t_list **stack_a, t_list **stack_b)
 		i++;
 	}
 	if (i == 0)
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, 1);
 	else
 		search_and_push_min_two(stack_a, stack_b, j, i);
 }

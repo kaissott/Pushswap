@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:18:33 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/16 16:03:53 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/09 06:10:25 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ void	sb(t_list **stack_b, int p)
 	if (p == 1)
 		write(1, "sb\n", 3);
 }
-void	ss(t_list **stack_a, t_list **stack_b)
+void	ss(t_list **stack_a, t_list **stack_b, int i)
 {
 	sa(stack_a, 0);
 	sa(stack_b, 0);
-	write(1, "ss\n", 3);
+	if (i == 1)
+		write(1, "ss\n", 3);
 }

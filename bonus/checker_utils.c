@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 04:21:34 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/09 04:43:06 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/09 05:31:17 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,17 @@ int	put_in_stack_a(t_list **stack_a, int nbr)
 
 void	check_is_sort(t_list **stack_a)
 {
-	int		size;
-	int		i;
 	t_list	*temp;
 
-	i = 0;
 	temp = (*stack_a);
-	size = ft_lstsize(*stack_a);
-	while (temp != NULL)
+	while (temp->next != NULL)
 	{
 		if (temp->value < temp->next->value)
 			temp = temp->next;
 		else
 			break ;
-		i++;
 	}
-	printf("%d\n", size);
-	printf("%d\n", i);
-	if (i == size)
+	if (temp->next == NULL)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);

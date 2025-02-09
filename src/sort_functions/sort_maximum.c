@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 06:39:52 by kaissramire       #+#    #+#             */
-/*   Updated: 2025/02/09 03:24:51 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/09 06:13:26 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	search_bigger(t_list *stack_b)
 	}
 	return (i);
 }
-void	first_push(t_list **stack_a, t_list **stack_b, int chunk)
+void	first_push(t_list **stack_a, t_list **stack_b, int chunk, int i)
 {
 	while ((*stack_a) != NULL)
 	{
-		if ((*stack_a)->index < chunk)
+		if ((*stack_a)->index < chunk && (*stack_a)->index < (i - 3))
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 1);
 			break ;
 		}
 		ra(stack_a, 1);
@@ -72,7 +72,7 @@ void	push_b_to_a(t_list **stack_a, t_list **stack_b)
 			while (j++ < size)
 				rrb(stack_b, 1);
 		}
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, 1);
 	}
 }
 
@@ -85,7 +85,7 @@ void	sort_stack_max(t_list **stack_a, t_list **stack_b)
 	stack_index(stack_a);
 	i = list_size(*stack_a);
 	j = chunk_size_calc(list_size(*stack_a));
-	first_push(stack_a, stack_b, j);
+	first_push(stack_a, stack_b, j, i);
 	while (list_size(*stack_a) > 3)
 	{
 		b = list_size(*stack_b);
@@ -93,7 +93,7 @@ void	sort_stack_max(t_list **stack_a, t_list **stack_b)
 			ra(stack_a, 1);
 		else
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 1);
 			if ((*stack_b)->index > b && (*stack_b)->index <= (j + b))
 				rb(stack_b, 1);
 		}
