@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 23:34:07 by kaissramire       #+#    #+#             */
-/*   Updated: 2024/12/17 11:52:10 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/09 03:59:49 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*resetbuff(char *saveline)
 		i++;
 	if (saveline[i] == '\0')
 		return (free(saveline), NULL);
-	ft_memcpy(saveline, saveline + i, ft_strlen(saveline) - i + 1);
+	ft_memcpy(saveline, saveline + i, ft_slen(saveline) - i + 1);
 	return (saveline);
 }
 

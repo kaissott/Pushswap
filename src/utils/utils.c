@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:50:29 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/04 14:02:18 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/09 04:21:03 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,16 @@ int	ft_isdigit(int c)
 		return (1);
 	else
 		return (0);
+}
+
+void	free_stack(t_list **stack)
+{
+	t_list	*tmp;
+
+	while ((*stack)->next != NULL)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		(*stack) = tmp;
+	}
 }

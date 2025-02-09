@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 17:21:57 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/08 19:43:51 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/09 03:25:07 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,10 @@ int	return_error(t_list **stack_a, char **temp)
 int	syntax_error(char *av)
 {
 	int	i;
-	int	len;
 
 	i = 0;
 	if ((av[i] == '-' || av[i] == '+') && ft_isdigit(av[i + 1]))
 		i++;
-	len = ft_strlen(av);
 	while (av[i] != '\0')
 	{
 		if (!ft_isdigit(av[i]))

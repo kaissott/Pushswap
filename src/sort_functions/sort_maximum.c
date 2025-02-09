@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 06:39:52 by kaissramire       #+#    #+#             */
-/*   Updated: 2025/01/29 15:47:29 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/09 03:24:51 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ int	search_bigger(t_list *stack_b)
 }
 void	first_push(t_list **stack_a, t_list **stack_b, int chunk)
 {
-	int	i;
-
-	i = 0;
 	while ((*stack_a) != NULL)
 	{
 		if ((*stack_a)->index < chunk)

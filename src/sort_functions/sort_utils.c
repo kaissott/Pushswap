@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:06:25 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/28 18:58:57 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/09 04:20:47 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	list_size(t_list *stack)
 
 	i = 0;
 	s = stack;
-/* 	if (s == NULL)
-		return (0); */
+	/* 	if (s == NULL)
+			return (0); */
 	while (s != NULL)
 	{
 		s = s->next;
@@ -74,16 +74,4 @@ int	chunk_size_calc(int list_size)
 
 	chunk = 0.000000053 * (list_size * list_size) + 0.03 * list_size + 14.5;
 	return (chunk);
-}
-
-void	free_stack(t_list **stack)
-{
-	t_list	*tmp;
-
-	while ((*stack)->next != NULL)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		(*stack) = tmp;
-	}
 }
