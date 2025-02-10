@@ -26,12 +26,13 @@ BONUS_SRC =	bonus/checker_main.c				bonus/get_next_line.c \
 			src/utils/ft_split_utils.c			src/utils/utils.c \
 			src/utils/lst_utils.c
 
-OBJ = $(SRC:.c=.o)
-OBJ_BONUS = $(BONUS_SRC:.c=.o)
+OBJ = $(SRC:%.c=obj/%.o)
+OBJ_BONUS = $(BONUS_SRC:%.c=obj/%.o)
 
 all: $(NAME)
 
-%.o : %.c Makefile
+obj/%.o: %.c Makefile
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 ${NAME}: ${OBJ} $(INCLUDE)
@@ -41,10 +42,9 @@ bonus: ${OBJ_BONUS} $(INCLUDE_BONUS)
 	@${CC} ${BONUS_SRC} -o ${NAME_BONUS}
 
 clean:
-	rm -f $(OBJ) $(OBJ_BONUS)
+		rm -rf obj
 
-fclean:
-	$(MAKE) clean
+fclean: clean
 	@${RM} ${NAME} ${NAME_BONUS}
 
 re : fclean all
