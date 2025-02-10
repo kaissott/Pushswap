@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 12:41:43 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/04 15:37:32 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:03:14 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	sort_stack(int size, t_list **stack_a, t_list **stack_b)
 		sort_stack_two(stack_a);
 	else if (size == 3)
 		sort_stack_three(stack_a);
-	else if (size == 5)
-		sort_stack_five(stack_a, stack_b);
+	else if (size == 4 || size == 5)
+		sort_stack_five(stack_a, stack_b, size);
 	else if (size > 5)
 		sort_stack_max(stack_a, stack_b);
 	return (0);

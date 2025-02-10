@@ -6,16 +6,17 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:06:12 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/09 06:12:00 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:02:43 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_stack_five(t_list **stack_a, t_list **stack_b)
+void	sort_stack_five(t_list **stack_a, t_list **stack_b, int i)
 {
 	search_and_push_min(stack_a, stack_b);
-	search_and_push_min(stack_a, stack_b);
+	if (i == 5)
+		search_and_push_min(stack_a, stack_b);
 	sort_stack_three(stack_a);
 	pa(stack_a, stack_b, 1);
 	pa(stack_a, stack_b, 1);

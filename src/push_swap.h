@@ -53,7 +53,7 @@ void				rrr(t_list **stack_a, t_list **stack_b, int i);
 void				sort_stack_two(t_list **stack_a);
 void				sort_stack_max(t_list **stack_a, t_list **stack_b);
 void				sort_stack_three(t_list **stack_a);
-void				sort_stack_five(t_list **stack_a, t_list **stack_b);
+void				sort_stack_five(t_list **stack_a, t_list **stack_b, int i);
 void				search_and_push_min_two(t_list **stack_a, t_list **stack_b,
 						int pos, int i);
 int					return_error(t_list **stack_a, char **temp);
