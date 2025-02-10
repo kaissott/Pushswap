@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 06:00:46 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/28 17:55:29 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:53:29 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,21 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	last->next = new;
 	new->next = NULL;
 	return ;
+}
+
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*temp;
+	t_list	*next;
+
+	if (lst == NULL || del == NULL)
+		return ;
+	temp = *lst;
+	while (temp != NULL)
+	{
+		next = temp->next;
+		free(temp);
+		temp = next;
+	}
+	*lst = NULL;
 }

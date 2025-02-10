@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:45:20 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/09 07:06:21 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:52:08 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,33 +47,17 @@ int	do_command(t_list **stack_a, t_list **stack_b, char *input)
 	else if (ft_strcmp("rrr\n", input) == 0)
 		rrr(stack_a, stack_b, 0);
 	else
-		return (-1);
+		return (0);
 	return (1);
 }
-int	check_params(char *str)
+static inline int	check_params(char *str)
 {
-	if (ft_strcmp("sa\n", str) == 0 || ft_strcmp("sb\n", str) == 0
-		|| ft_strcmp("ss\n", str) == 0 || ft_strcmp("pa\n", str) == 0
-		|| ft_strcmp("pb\n", str) == 0 || ft_strcmp("ra\n", str) == 0
-		|| ft_strcmp("rb\n", str) == 0 || ft_strcmp("rr\n", str) == 0
-		|| ft_strcmp("rra\n", str) == 0 || ft_strcmp("rrb\n", str) == 0
-		|| ft_strcmp("rrr\n", str) == 0)
-		return (1);
-	else
-		return (-1);
-}
-
-void	print_stack(t_list *stack)
-{
-	t_list	*current;
-
-	current = stack;
-	while (current != NULL)
-	{
-		printf("%d ", current->value);
-		current = current->next;
-	}
-	printf("\n");
+	return ((ft_strcmp("sa\n", str) == 0 || ft_strcmp("sb\n", str) == 0
+			|| ft_strcmp("ss\n", str) == 0 || ft_strcmp("pa\n", str) == 0
+			|| ft_strcmp("pb\n", str) == 0 || ft_strcmp("ra\n", str) == 0
+			|| ft_strcmp("rb\n", str) == 0 || ft_strcmp("rr\n", str) == 0
+			|| ft_strcmp("rra\n", str) == 0 || ft_strcmp("rrb\n", str) == 0
+			|| ft_strcmp("rrr\n", str) == 0));
 }
 
 int	check_input(t_list **stack_a, t_list **stack_b)
@@ -83,14 +67,15 @@ int	check_input(t_list **stack_a, t_list **stack_b)
 	input = get_next_line(0);
 	while (input != NULL)
 	{
-		if (check_params(input) == -1)
-			return (-1);
-		do_command(stack_a, stack_b, input);
+		if (!check_params(input))
+			return (free_stacks(stack_a, stack_b, input));
+		if (!do_command(stack_a, stack_b, input))
+			return (free_stacks(stack_a, stack_b, input));
 		free(input);
 		input = get_next_line(0);
 	}
-	free(input);
-	check_is_sort(stack_a);
+	check_is_sort(stack_a, stack_b);
+	free_stacks(stack_a, stack_b, input);
 	return (1);
 }
 
@@ -107,9 +92,5 @@ int	main(int ac, char **av)
 		return (-1);
 	if (check_input(&stack_a, &stack_b) == -1)
 		return (write(2, "Error\n", 6));
-	if (stack_a)
-		free_stack(&stack_a);
-	if (stack_b)
-		free_stack(&stack_b);
 	return (0);
 }

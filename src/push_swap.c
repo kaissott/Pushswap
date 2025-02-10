@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:33:22 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/08 19:48:56 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:57:57 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,8 @@ int	main(int ac, char **av)
 	if (check_stack(&stack_a, ac, av) == -1)
 		return (-1);
 	sort_stack(list_size(stack_a), &stack_a, &stack_b);
-	free_stack(&stack_a);
-	free(stack_a);
-	free(stack_b);
+	ft_lstclear(&stack_a, free);
+	ft_lstclear(&stack_b, free);
 	return (0);
 }
 // https://42-cursus.gitbook.io/guide/rank-02/push_swap/building-the-thing

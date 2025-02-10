@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:58:21 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/09 04:40:34 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:51:59 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 # include <unistd.h>
 
 int		put_in_stack_a(t_list **stack_a, int nbr);
-void	check_is_sort(t_list **stack_a);
+void	check_is_sort(t_list **stack_a, t_list **stack_b);
 int		check_input(t_list **stack_a, t_list **stack_b);
+/* int		check_params(char *str); */
+int		free_stacks(t_list **stack_a, t_list **stack_b, char *line);
 
 #endif

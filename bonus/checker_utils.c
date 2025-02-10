@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 04:21:34 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/09 05:31:17 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:51:36 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,16 @@ int	put_in_stack_a(t_list **stack_a, int nbr)
 	return (1);
 }
 
-void	check_is_sort(t_list **stack_a)
+void	check_is_sort(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*temp;
 
 	temp = (*stack_a);
+	if ((*stack_a) == NULL || (*stack_b) != NULL)
+	{
+		write(1, "KO\n", 3);
+		return ;
+	}
 	while (temp->next != NULL)
 	{
 		if (temp->value < temp->next->value)
@@ -53,4 +58,14 @@ void	check_is_sort(t_list **stack_a)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+}
+int	free_stacks(t_list **stack_a, t_list **stack_b, char *line)
+{
+	if (*stack_a)
+		ft_lstclear(stack_a, free);
+	if (*stack_b)
+		ft_lstclear(stack_b, free);
+	if (line)
+		free(line);
+	return (-1);
 }
