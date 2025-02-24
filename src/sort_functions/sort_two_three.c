@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 12:41:43 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/10 11:03:14 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:57:02 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	sort_stack_three(t_list **stack_a)
 
 int	sort_stack(int size, t_list **stack_a, t_list **stack_b)
 {
+	if (check_is_sorted(stack_a))
+		return (0);
 	if (size == 2)
 		sort_stack_two(stack_a);
 	else if (size == 3)

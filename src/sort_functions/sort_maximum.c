@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 06:39:52 by kaissramire       #+#    #+#             */
-/*   Updated: 2025/02/09 06:13:26 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:57:55 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	search_bigger(t_list *stack_b)
 	}
 	return (i);
 }
+
 void	first_push(t_list **stack_a, t_list **stack_b, int chunk, int i)
 {
 	while ((*stack_a) != NULL)
@@ -40,18 +41,14 @@ void	first_push(t_list **stack_a, t_list **stack_b, int chunk, int i)
 	}
 }
 
-void	push_b_to_a(t_list **stack_a, t_list **stack_b)
+void	push_b_to_a(t_list **stack_a, t_list **stack_b, int i, int j)
 {
 	t_list	*b;
-	int		median;
 	int		size;
-	int		i;
-	int		j;
 
 	while (list_size(*stack_b) > 0)
 	{
 		size = list_size(*stack_b);
-		median = (size / 2);
 		i = search_bigger(*stack_b);
 		b = (*stack_b);
 		j = 0;
@@ -62,16 +59,12 @@ void	push_b_to_a(t_list **stack_a, t_list **stack_b)
 			j++;
 			b = b->next;
 		}
-		if (j <= median)
-		{
+		if (j <= (size / 2))
 			while (j-- > 0)
 				rb(stack_b, 1);
-		}
 		else
-		{
 			while (j++ < size)
 				rrb(stack_b, 1);
-		}
 		pa(stack_a, stack_b, 1);
 	}
 }
@@ -99,5 +92,22 @@ void	sort_stack_max(t_list **stack_a, t_list **stack_b)
 		}
 	}
 	sort_stack_three(stack_a);
-	push_b_to_a(stack_a, stack_b);
+	push_b_to_a(stack_a, stack_b, 0, 0);
+}
+int	check_is_sorted(t_list **stack_a)
+{
+	t_list	*temp;
+
+	temp = (*stack_a);
+	while (temp->next != NULL)
+	{
+		if (temp->value < temp->next->value)
+			temp = temp->next;
+		else
+			break ;
+	}
+	if (temp->next == NULL)
+		return (1);
+	else
+		return (0);
 }

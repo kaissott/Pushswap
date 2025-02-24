@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:06:25 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/09 04:20:47 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:05:40 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	list_size(t_list *stack)
 
 	i = 0;
 	s = stack;
-	/* 	if (s == NULL)
-			return (0); */
 	while (s != NULL)
 	{
 		s = s->next;
@@ -40,6 +38,7 @@ void	index_init(t_list **stack_a)
 		a = a->next;
 	}
 }
+
 void	stack_index(t_list **stack_a)
 {
 	int		i;

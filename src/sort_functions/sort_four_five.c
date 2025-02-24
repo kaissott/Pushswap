@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:06:12 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/10 11:02:43 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:01:06 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	sort_stack_five(t_list **stack_a, t_list **stack_b, int i)
 	pa(stack_a, stack_b, 1);
 	pa(stack_a, stack_b, 1);
 }
+
 void	search_and_push_min_two(t_list **stack_a, t_list **stack_b, int pos,
 		int i)
 {
@@ -43,6 +44,7 @@ void	search_and_push_min_two(t_list **stack_a, t_list **stack_b, int pos,
 	}
 	pb(stack_a, stack_b, 1);
 }
+
 void	search_and_push_min(t_list **stack_a, t_list **stack_b)
 {
 	int		min;

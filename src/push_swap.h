@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:39:39 by karamire          #+#    #+#             */
-/*   Updated: 2025/01/28 18:18:29 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:56:28 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +33,8 @@ int					sort_stack(int ac, t_list **stack_a, t_list **stack_b);
 int					list_size(t_list *stack);
 int					chunk_size_calc(int list_size);
 int					ft_isdigit(int c);
-int					ft_atoi(const char *str);
-int					check_stack(t_list **stack_a, int ac, char **argv);
+int					ft_atoi(const char *str, int *e);
+int					check_stack(t_list **stack_a, int ac, char **argv, int *e);
 int					put_in_stack_a(t_list **stack_a, int nbr);
 size_t				ft_strlen(const char *s);
 t_list				*ft_lstlast(t_list *lst);
@@ -59,10 +58,11 @@ void				search_and_push_min_two(t_list **stack_a, t_list **stack_b,
 int					return_error(t_list **stack_a, char **temp);
 void				search_and_push_min(t_list **stack_a, t_list **stack_b);
 void				stack_index(t_list **stack_a);
-void				free_stack(t_list **stack);
 void				first_push(t_list **stack_a, t_list **stack_b, int chunk,
 						int i);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstclear(t_list **lst, void (*del)(void *));
+void				free_tab(char **tab);
+int					check_is_sorted(t_list **stack_a);
 
 #endif

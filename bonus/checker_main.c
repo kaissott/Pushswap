@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:45:20 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/10 10:52:08 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:06:46 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	do_command(t_list **stack_a, t_list **stack_b, char *input)
 		return (0);
 	return (1);
 }
+
 static inline int	check_params(char *str)
 {
 	return ((ft_strcmp("sa\n", str) == 0 || ft_strcmp("sb\n", str) == 0
@@ -83,14 +84,16 @@ int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
+	int		j;
 
+	j = 0;
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac < 2)
 		return (0);
-	if (check_stack(&stack_a, ac, av) == -1)
+	if (!check_stack(&stack_a, ac, av, &j))
 		return (-1);
-	if (check_input(&stack_a, &stack_b) == -1)
+	if (!check_input(&stack_a, &stack_b))
 		return (write(2, "Error\n", 6));
 	return (0);
 }

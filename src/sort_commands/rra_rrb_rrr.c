@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:21:41 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/09 06:10:39 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:00:45 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	rra(t_list **stack_a, int p)
 	if (p == 1)
 		write(1, "rra\n", 4);
 }
+
 void	rrb(t_list **stack_b, int p)
 {
 	t_list	*last;
@@ -48,6 +49,7 @@ void	rrb(t_list **stack_b, int p)
 	if (p == 1)
 		write(1, "rrb\n", 4);
 }
+
 void	rrr(t_list **stack_a, t_list **stack_b, int i)
 {
 	if (stack_a != NULL)

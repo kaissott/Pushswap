@@ -6,7 +6,7 @@
 /*   By: karamire <karamire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:50:29 by karamire          #+#    #+#             */
-/*   Updated: 2025/02/10 10:57:57 by karamire         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:17:53 by karamire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_intchecker(long result, long sign, int i, char *str)
 	return (result);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int *e)
 {
 	int		i;
 	long	sign;
@@ -51,6 +51,8 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
 		result = ft_intchecker(result, sign, i, (char *)str);
+		if (result < 0)
+			*e = -1;
 		i++;
 	}
 	return (result * sign);
